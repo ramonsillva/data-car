@@ -1,0 +1,175 @@
+﻿@page "/"
+@using DataTableApp.Data
+@using tableApp.Components.Card
+@rendermode InteractiveServer
+
+<h1 class="title">Quadro de Serviços</h1>
+
+<div class="table-board">
+    @foreach (var status in StateUses)
+    {
+        <div class="table-column @(dropTargetStatus == status ? "can-drop" : "")" @ondrop="() => HandleDrop(status)"
+            @ondragover="OnDragOver" @ondragover:preventDefault="true" @ondragenter="() => HandleDragEnter(status)">
+
+            <div class="column-header">
+                <h5 class="column-title">@status</h5>
+                <button class="add-card-btn" @onclick="() => OpenNewCardForm(status)">
+                <i class="bi bi-plus" style="font-size: 2rem;"></i>
+                </button>
+            </div>
+
+            <div class="column-cards">
+            @foreach (var os in Os.Where(o => o.Status == status))
+                {
+                    <Card Title="@($"OS: {os.Os}")" OnDragStart="@(() => HandleDragStart(os))">
+
+                        <p>Cliente: <strong>@os.Cliente</strong></p>
+                        <p>Placa: <strong>@os.Placa</strong></p>
+
+                        <hr />
+                        <p class="card-date">
+                            <i class="bi bi-calendar-check" style="font-size: 1.1rem;">
+                            </i> @os.DataAbertura.ToString("dd/MM/yyyy HH:mm")
+                        </p>
+                        @if (os.DataFechamento.HasValue)
+                        {
+                            <p class="card-date">
+                            <i class="bi bi-calendar-check-fill" style="font-size: 1.1rem;">
+                            </i> @os.DataFechamento.Value.ToString("dd/MM/yyyy HH:mm")</p>
+                        }
+                    </Card>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@if (showNewCardForm)
+{
+    <div class="new-card-overlay">
+        <div class="new-card-form">
+            <h4>Novo Cliente - @newCardStatus</h4>
+            <input placeholder="OS" @bind="newCardOs" type="number" />
+            <input placeholder="Cliente" @bind="newCardCliente" />
+            <input placeholder="Placa" @bind="newCardPlaca" />
+
+            <div class="form-buttons">
+                <button @onclick="AddNewCard">Adicionar</button>
+                <button @onclick="CloseNewCardForm">Cancelar</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+@code {
+    private List<string> StateUses = new List<string>
+    {
+        "Aguardando", "Orçamento", "Aguardando Peça", "Execução", "Teste/Lavagem", "Pronto"
+    };
+    
+
+    private List<OrdemServico> Os = new List<OrdemServico>();
+
+    private OrdemServico? item;
+    private string? dropTargetStatus = null;
+
+
+    private bool showNewCardForm = false;
+    private string newCardStatus = "";
+    private int newCardOs;
+    private string newCardCliente = string.Empty;
+    private string newCardPlaca = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        Os.Add(new OrdemServico
+        {
+            Os = 1023,
+            Cliente = "José da Silva",
+            Placa = "ABC-1234",
+            Status = "Execução",
+            DataAbertura =
+        DateTime.Now.AddHours(-48)
+        });
+        Os.Add(new OrdemServico
+        {
+            Os = 1024,
+            Cliente = "Maria Souza",
+            Placa = "XYZ-5678",
+            Status = "Aguardando Peça",
+            DataAbertura = DateTime.Now.AddHours(-24)
+        });
+        Os.Add(new OrdemServico
+        {
+            Os = 1025,
+            Cliente = "Carlos Pereira",
+            Placa = "QWE-9101",
+            Status = "Pronto",
+            DataAbertura =
+        DateTime.Now.AddDays(-5),
+            DataFechamento = DateTime.Now.AddDays(-1)
+        });
+        Os.Add(new OrdemServico
+        {
+            Os = 1026,
+            Cliente = "Ana Costa",
+            Placa = "JKL-1121",
+            Status = "Aguardando",
+            DataAbertura =
+        DateTime.Now.AddHours(-2)
+        });
+        Os.Add(new OrdemServico
+        {
+            Os = 1027,
+            Cliente = "Beatriz Lima",
+            Placa = "RST-0099",
+            Status = "Aguardando",
+            DataAbertura =
+        DateTime.Now.AddMinutes(-30)
+        });
+    }
+
+    private void HandleDragStart(OrdemServico i) => item = i;
+
+    private void HandleDrop(string newStatus)
+    {
+        if (item != null)
+        {
+            item.Status = newStatus;
+            item.DataFechamento = newStatus == "Pronto" ? DateTime.Now : null;
+            StateHasChanged();
+            dropTargetStatus = null;
+            item = null;
+        }
+    }
+
+    private void OnDragOver(DragEventArgs e) { }
+
+    private void HandleDragEnter(string status) => dropTargetStatus = status;
+
+    private void OpenNewCardForm(string status)
+    {
+        newCardStatus = status;
+        newCardOs = Os.Max(o => o.Os) + 1;
+        newCardCliente = string.Empty;
+        newCardPlaca = string.Empty;
+        showNewCardForm = true;
+    }
+
+    private void CloseNewCardForm() => showNewCardForm = false;
+
+    private void AddNewCard()
+    {
+        Os.Add(new OrdemServico
+        {
+            Os = newCardOs,
+            Cliente = newCardCliente,
+            Placa = newCardPlaca,
+            Status = newCardStatus,
+            DataAbertura = DateTime.Now
+        });
+
+        showNewCardForm = false;
+    }
+}

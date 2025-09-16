@@ -1,0 +1,27 @@
+<div class="card @(IsDragging ? "dragging" : "")"
+     draggable="true"
+     @ondragstart="HandleDragStartInternal">
+
+    <h4>@Title</h4>
+
+    @ChildContent
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; } = string.Empty;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public EventCallback OnDragStart { get; set; }
+
+    // Somente controle de borda durante drag
+    private bool IsDragging { get; set; } = false;
+
+    private async Task HandleDragStartInternal(DragEventArgs e)
+    {
+        IsDragging = true;
+
+        if (OnDragStart.HasDelegate)
+        {
+            await OnDragStart.InvokeAsync();
+        }
+    }
+}

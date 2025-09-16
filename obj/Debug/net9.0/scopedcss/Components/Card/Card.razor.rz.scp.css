@@ -1,0 +1,14 @@
+.card[b-8jifqj4cp0] {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 8px;
+    cursor: grab;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 2px solid transparent; /* padrão */
+    transition: border 0.2s ease;
+}
+
+.card h4[b-8jifqj4cp0] {
+    margin: 0 0 8px 0;
+}
