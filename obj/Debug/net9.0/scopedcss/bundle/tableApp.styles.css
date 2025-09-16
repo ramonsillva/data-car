@@ -1,5 +1,4 @@
 /* _content/tableApp/Components/Card/Card.razor.rz.scp.css */
-/* CSS mínimo para o Card - Bootstrap já fornece a base */
 .card:hover[b-8jifqj4cp0] {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.15) !important;

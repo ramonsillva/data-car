@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tableApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70576f0a25eb436adb1e678777b17aaa3b6ecbae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b7e8e574bb611fcb7bd28fbbcee3b428968ae32")]
 [assembly: System.Reflection.AssemblyProductAttribute("tableApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tableApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
