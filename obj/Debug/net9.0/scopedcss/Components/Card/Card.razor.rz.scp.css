@@ -1,14 +1,14 @@
-.card[b-8jifqj4cp0] {
-    background-color: #fff;
-    border-radius: 4px;
-    padding: 12px;
-    margin-bottom: 8px;
-    cursor: grab;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    border: 2px solid transparent; /* padrão */
-    transition: border 0.2s ease;
+/* CSS mínimo para o Card - Bootstrap já fornece a base */
+.card:hover[b-8jifqj4cp0] {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15) !important;
 }
 
-.card h4[b-8jifqj4cp0] {
-    margin: 0 0 8px 0;
+.card.dragging[b-8jifqj4cp0] {
+    opacity: 0.8;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2) !important;
+}
+
+.card:active[b-8jifqj4cp0] {
+    cursor: grabbing;
 }

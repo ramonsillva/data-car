@@ -1,10 +1,12 @@
-<div class="card @(IsDragging ? "dragging" : "")"
+<div class="card border-0 shadow-sm mb-3 @(IsDragging ? "border-primary dragging" : "")"
      draggable="true"
-     @ondragstart="HandleDragStartInternal">
+     @ondragstart="HandleDragStartInternal"
+     style="cursor: grab; transition: all 0.2s ease;">
 
-    <h4>@Title</h4>
-
-    @ChildContent
+    <div class="card-body p-3">
+        <h6 class="card-title fw-bold mb-3">@Title</h6>
+        @ChildContent
+    </div>
 </div>
 
 @code {
@@ -12,7 +14,6 @@
     [Parameter] public RenderFragment? ChildContent { get; set; }
     [Parameter] public EventCallback OnDragStart { get; set; }
 
-    // Somente controle de borda durante drag
     private bool IsDragging { get; set; } = false;
 
     private async Task HandleDragStartInternal(DragEventArgs e)

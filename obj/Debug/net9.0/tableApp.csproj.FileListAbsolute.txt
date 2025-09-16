@@ -17,7 +17,6 @@ C:\Users\ramon\code\tableApp\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\ramon\code\tableApp\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\ramon\code\tableApp\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\ramon\code\tableApp\obj\Debug\net9.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
-C:\Users\ramon\code\tableApp\obj\Debug\net9.0\scopedcss\Components\Pages\Home.razor.rz.scp.css
 C:\Users\ramon\code\tableApp\obj\Debug\net9.0\scopedcss\bundle\tableApp.styles.css
 C:\Users\ramon\code\tableApp\obj\Debug\net9.0\scopedcss\projectbundle\tableApp.bundle.scp.css
 C:\Users\ramon\code\tableApp\obj\Debug\net9.0\compressed\fnpxqit17m-4kywy7iv6g.gz
@@ -31,5 +30,7 @@ C:\Users\ramon\code\tableApp\obj\Debug\net9.0\tableApp.pdb
 C:\Users\ramon\code\tableApp\obj\Debug\net9.0\tableApp.genruntimeconfig.cache
 C:\Users\ramon\code\tableApp\obj\Debug\net9.0\ref\tableApp.dll
 C:\Users\ramon\code\tableApp\obj\Debug\net9.0\scopedcss\Components\Card\Card.razor.rz.scp.css
-C:\Users\ramon\code\tableApp\obj\Debug\net9.0\compressed\sl0maruhqs-27njk5cqty.gz
-C:\Users\ramon\code\tableApp\obj\Debug\net9.0\compressed\4by59wm3ee-27njk5cqty.gz
+C:\Users\ramon\code\tableApp\obj\Debug\net9.0\tableApp.sourcelink.json
+C:\Users\ramon\code\tableApp\obj\Debug\net9.0\scopedcss\Components\Pages\Home\Home.razor.rz.scp.css
+C:\Users\ramon\code\tableApp\obj\Debug\net9.0\compressed\sl0maruhqs-692485nkev.gz
+C:\Users\ramon\code\tableApp\obj\Debug\net9.0\compressed\4by59wm3ee-692485nkev.gz

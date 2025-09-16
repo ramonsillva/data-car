@@ -1,10 +1,10 @@
-.table-board {
+.table-board[b-d67ef1i9ra] {
     background-color: #f8f9fa;
     border-radius: 8px;
     min-height: 70vh;
 }
 
-.table-column {
+.table-column[b-d67ef1i9ra] {
     background-color: #e9ecef;
     border-radius: 8px;
     padding: 1rem;
@@ -12,20 +12,20 @@
     border: 2px solid transparent;
 }
 
-.column-cards {
+.column-cards[b-d67ef1i9ra] {
     min-height: 200px;
 }
 
-.btn-hover:hover {
+.btn-hover:hover[b-d67ef1i9ra] {
     color: black;
 }
 
 @media (max-width: 576px) {
-    .table-board {
+    .table-board[b-d67ef1i9ra] {
         padding: 0.5rem;
     }
     
-    .table-column {
+    .table-column[b-d67ef1i9ra] {
         padding: 0.75rem;
     }
 }
